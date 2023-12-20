@@ -3,10 +3,10 @@ import shutil
 import subprocess
 from PIL import Image
 # Hardcoded path to the directory containing images
-directory = 'New folder'
+directory = '/Users/test/Downloads/recorder/Downloads'
 # keep_directory = os.path.join('/', "keep")
 keep_directory = 'keep'
-
+keep_directory_alt = 'cartoon_for_upload'
 def focus_terminal():
     try:
         script = 'tell application "Terminal" to activate'
@@ -36,6 +36,8 @@ def process_images(directory, keep_directory):
                 elif choice == '2':
                     print(f"Deleting {filename}.")
                     os.remove(image_path)
+                elif choice == '3':
+                    shutil.move(image_path, os.path.join(keep_directory_alt, filename))
                 else:
                     print("Invalid input. Skipping this image.")
 
